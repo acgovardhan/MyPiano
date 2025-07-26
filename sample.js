@@ -15,11 +15,18 @@ const C5 = document.querySelector('#w8');
 
 
 const noteArray = [
-  {
+{
+  title: 'Sa Re Ga Ma..',
+  note1: 'S D F G H J K L',
+  note2: 'L K J H G F D S'
+}
+,
+{
   title: 'Twinkle twinkle little star',
   note1: 'SS HH JJ H GG FF DD S',
   note2: ''
 },
+
 {
   title: "Happy Birthday to you..",
   note1: "SS D S GF",
