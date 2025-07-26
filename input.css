@@ -322,7 +322,9 @@ font-size: large;
 #credits-field{
   width: 50%;
   height: 65%;
+  font-family: sans-serif;
   border: 2px solid hsl(0, 0%, 20%);
   border-radius: 10px;
   margin-bottom: 5%;
+  padding: 3.5%;
 }
