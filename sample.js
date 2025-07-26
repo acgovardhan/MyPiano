@@ -1,20 +1,3 @@
-// document.addEventListener('keydown', function(event)
-// {
-//   console.log(`${event.key} was pressed`);
-// })
-
-// let lasttime =0;
-// document.addEventListener('mousemove', function(event)
-// {
-//   //console.log("mousemovementfired");
-//   const now = Date.now();
-//   if(now-lasttime > 100)
-//   {
-//     console.log(event.clientX, event.clientY);
-//     lasttime=now;
-//   }
-// })
-
 const C4 = document.querySelector('#w1');
 const Db4 = document.querySelector('#b1');
 const D4 = document.querySelector('#w2');
@@ -29,27 +12,38 @@ const Bb4 = document.querySelector('#b5');
 const B4 = document.querySelector('#w7');
 const C5 = document.querySelector('#w8');
 
-let currentCount = -1;
 
-const noteArray = [{
-  title: 'Titanic: Every night in my Dream',
-  note1: 'G GG G FG G FG H J H',
-  note2: 'G GG G FG G S...'
-}, 
-{
+
+const noteArray = [
+  {
   title: 'Twinkle twinkle little star',
   note1: 'SS HH JJ H GG FF DD S',
   note2: ''
-
+},
+{
+  title: "Happy Birthday to you..",
+  note1: "SS D S GF",
+  note2: "SS D S HG"
 },
 {
   title: 'Marry had a little Lamb',
   note1: 'F DSD FFF DDD FHH',
   note2: 'F DSD FFF FDD FDS'
+},
+{
+  title: 'Titanic: Every night in my Dream',
+  note1: 'G GG G FG G FG H J H',
+  note2: 'G GG G FG G S...'
+}, 
+{
+  title: "Interstellar",
+  note1: "JF JF KF KF LF LF DF DF",
+  note2: ""
 }
 ]
 
 const len = noteArray.length;
+let currentCount = 0;
 
 const notename = document.getElementById('note-name')
 const line1 = document.getElementById('line1')
@@ -59,6 +53,8 @@ const nextbtn = document.getElementById('next-btn')
 
 const closeGuide = document.getElementById('close-guide');
 const titleNote = document.getElementById('title-note');
+const notesHelp = document.getElementById('notes-help')
+const needGuide = document.getElementById('need-guide');
 
 C4.addEventListener('click',()=>{
   const audio = new Audio('Notes/C4.mp3');
@@ -225,6 +221,29 @@ document.addEventListener('keydown',(event)=>{
 })
 
 
+needGuide.addEventListener('click', ()=>{
+  notesHelp.classList.remove('hidden')
+  needGuide.classList.add('hidden')
+  displayNotes(0);
+})
+
+closeGuide.addEventListener('click', ()=>{
+  notesHelp.classList.add('hidden')
+  needGuide.classList.remove('hidden')
+  currentCount=0;
+})
 
 
+function displayNotes(num){
+  let nextCurrent = currentCount+num;
+  console.log(nextCurrent, currentCount)
+  if(nextCurrent<0 || nextCurrent>len-1) return;
 
+  currentCount = nextCurrent;
+  notename.textContent = noteArray[currentCount].title;
+  line1.textContent = noteArray[currentCount].note1;
+  line2.textContent = noteArray[currentCount].note2;
+}
+
+prevbtn.addEventListener('click', ()=>{displayNotes(-1)});
+nextbtn.addEventListener('click', ()=> {displayNotes(1)});
