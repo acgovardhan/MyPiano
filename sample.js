@@ -13,7 +13,6 @@ const B4 = document.querySelector('#w7');
 const C5 = document.querySelector('#w8');
 
 
-
 const noteArray = [
 {
   title: 'Sa Re Ga Ma..',
@@ -159,6 +158,34 @@ C5.addEventListener('click',()=>{
     C5.classList.remove('white-key-active')
   }, 100);
 })
+
+const welcomeFunc = () => {
+  setTimeout(()=>{
+    C4.click();
+  },100)
+  setTimeout(()=>{
+    D4.click();
+  },300)
+  setTimeout(()=>{
+    E4.click();
+  },500)
+  setTimeout(()=>{
+    F4.click();
+  },700)
+  setTimeout(()=>{
+    G4.click();
+  },900)
+  setTimeout(()=>{
+    A4.click();
+  },1100)
+  setTimeout(()=>{
+    B4.click();
+  },1300)
+  setTimeout(()=>{
+    C5.click();
+  },1500)
+}
+
 
 document.addEventListener('keydown',(event)=>{
   const Key = event.key;
